@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="counter">
+        <p>Warning: You cannot increase the number above 10</p>
+        <input id="button" type="button" title="Increase" name="Increase" value="Click to Increase" />
+        <p>Current count is: <span id="number">0</span></p>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $('#button').click(function () {
+            var url = "/Home/CountFunction";
+            $.get(url, null, function (data) {
+                $('#number').html(data);
+            });
+        })
+    </script>
+}
